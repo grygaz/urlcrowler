@@ -15,7 +15,7 @@ namespace ConsoleApp1
          static void Main(string[] args)
         {
 
-            string adresas = "http://www.lrytas.lt";
+            string adresas = Console.ReadLine();
             
 
 
