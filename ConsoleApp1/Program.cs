@@ -16,12 +16,7 @@ namespace ConsoleApp1
         {
 
             string adresas = Console.ReadLine();
-            
-
-
-            Console.WriteLine("Hello world!!!"+"\n");
-
-
+         //   Console.WriteLine("Hello world!!!"+"\n");
             UrlFiltravimas(adresas);
             EmailFiltravimas(adresas);
             Console.WriteLine();
@@ -41,16 +36,10 @@ namespace ConsoleApp1
                     sablonas = sablonas + "\n" + item.Value;
                 }
             }
-
-                      
-            
-            Console.WriteLine("Puslapuje rastos nuorodos:..." + "\n" + sablonas+"\n");
-            
-
+                Console.WriteLine("Puslapuje rastos nuorodos:..." + "\n" + sablonas+"\n");
         }
          static void EmailFiltravimas(string adresas)
         {
-
             var url = new WebClient();
             var text = url.DownloadString(adresas);
             string sablonas = "";
