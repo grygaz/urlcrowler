@@ -1,64 +1,22 @@
 ﻿using System;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
+using FiltravimoNS;
 
-namespace ConsoleApp1
+namespace UrlFiltravimas
 {
     class Program
-
     {
-        
-         static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Ivesk URL adresa pvz.: http://www.lrytas.lt ir spausk enter.");
+            Console.Write("Ivesk URL adresa pvz.: http://www.lrytas.lt ir spausk enter: ");
             string adresas = Console.ReadLine();
-            
-            UrlFiltravimas(adresas);
-            EmailFiltravimas(adresas);
-            Console.WriteLine();
+
+            var urlFltr = new Filtravimas();
+
+            Console.WriteLine(urlFltr.UrlFiltravimas(adresas));
+            Console.WriteLine(urlFltr.EmailFiltravimas(adresas));
+
+            Console.WriteLine("\nSpausk bet kuri klavisa, jei nori baigti...");
             Console.ReadKey();
-
         }
-         static void UrlFiltravimas (string adresas)
-        {
-            
-            var url = new WebClient();
-            var text = url.DownloadString(adresas);
-            string sablonas = "";
-            foreach (Match item in Regex.Matches(text, "(https?:\\/\\/\\w+?\\.?\\w+\\.\\w+\\/)"))
-            {
-                if (!Regex.IsMatch(sablonas, item.Value))
-                {
-                    sablonas = sablonas + "\n" + item.Value;
-                }
-            }
-
-                      
-            
-            Console.WriteLine("Puslapuje rastos nuorodos:..." + "\n" + sablonas+"\n");
-            
-
-        }
-         static void EmailFiltravimas(string adresas)
-        {
-
-            var url = new WebClient();
-            var text = url.DownloadString(adresas);
-            string sablonas = "";
-            foreach (Match item in Regex.Matches(text, @"\b(?<mail>[a-zA-Z_0-9.-]+\@[a-zA-Z_0-9.-]+\.\w+)\b"))
-            {
-                if (!Regex.IsMatch(sablonas, item.Value))
-                {
-                    sablonas = sablonas + "\n" + item.Value;
-                }
-            }
-
-            Console.WriteLine("Puslapyje rasti e-mail'ai:.." + "\n" + sablonas);
-        }
-
     }
 }
