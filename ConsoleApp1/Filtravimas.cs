@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 
@@ -10,32 +8,48 @@ namespace FiltravimoNS
     {
         public string UrlFiltravimas(string adresas)
         {
-            var url = new WebClient();
-            var text = url.DownloadString(adresas);
-            string sablonas = "";
-            foreach (Match item in Regex.Matches(text, "(https?:\\/\\/\\w+?\\.?\\w+\\.\\w+\\/)"))
+            try
             {
-                if (!Regex.IsMatch(sablonas, item.Value))
+                var url = new WebClient();
+                var text = url.DownloadString(adresas);
+                string sablonas = "";
+                foreach (Match item in Regex.Matches(text, "(https?:\\/\\/\\w+?\\.?\\w+\\.\\w+\\/)"))
                 {
-                    sablonas = sablonas + "\n" + item.Value;
+                    if (!Regex.IsMatch(sablonas, item.Value))
+                    {
+                        sablonas = sablonas + "\n" + item.Value;
+                    }
                 }
+                return sablonas;
             }
-            return sablonas;
+            catch (Exception e)
+            {
+                return e.Message.ToString();
+            }
+
         }
 
         public string EmailFiltravimas(string adresas)
         {
-            var url = new WebClient();
-            var text = url.DownloadString(adresas);
-            string sablonas = "";
-            foreach (Match item in Regex.Matches(text, @"\b(?<mail>[a-zA-Z_0-9.-]+\@[a-zA-Z_0-9.-]+\.\w+)\b"))
+            try
             {
-                if (!Regex.IsMatch(sablonas, item.Value))
+                var url = new WebClient();
+                var text = url.DownloadString(adresas);
+                string sablonas = "";
+                foreach (Match item in Regex.Matches(text, @"\b(?<mail>[a-zA-Z_0-9.-]+\@[a-zA-Z_0-9.-]+\.\w+)\b"))
                 {
-                    sablonas = sablonas + "\n" + item.Value;
+                    if (!Regex.IsMatch(sablonas, item.Value))
+                    {
+                        sablonas = sablonas + "\n" + item.Value;
+                    }
                 }
+                return sablonas;
             }
-            return sablonas;
+            catch (Exception e)
+            {
+
+                return e.Message.ToString();
+            }
         }
 
     }
