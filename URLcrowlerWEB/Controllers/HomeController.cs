@@ -17,7 +17,6 @@ namespace URLcrowlerWEB.Controllers
 
             IList<Adresai> urlAdresuSarasas = new List<Adresai>();
 
-
             foreach (var item in duomenys)
             {
                 urlAdresuSarasas.Add(new Adresai() { urlAdresas = item.ToString() });

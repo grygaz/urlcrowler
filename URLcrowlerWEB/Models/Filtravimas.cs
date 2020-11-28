@@ -26,7 +26,6 @@ namespace FiltravimoNS
             {
                 return e.Message.ToString();
             }
-
         }
 
         public string EmailFiltravimas(string adresas)
