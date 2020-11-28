@@ -14,14 +14,9 @@ namespace ConsoleApp1
         
          static void Main(string[] args)
         {
-
-            string adresas = "http://www.lrytas.lt";
+            Console.WriteLine("Ivesk URL adresa pvz.: http://www.lrytas.lt ir spausk enter.");
+            string adresas = Console.ReadLine();
             
-
-
-            Console.WriteLine("Hello world!!!"+"\n");
-
-
             UrlFiltravimas(adresas);
             EmailFiltravimas(adresas);
             Console.WriteLine();
