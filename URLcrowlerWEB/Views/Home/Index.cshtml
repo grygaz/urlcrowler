@@ -1,0 +1,16 @@
+﻿@using URLcrowlerWEB.Models;
+
+@{
+    ViewBag.Title = "URL adresai esantys portale lrytas.lt";
+}
+
+<h2>URL adresai esantys portale lrytas.lt</h2>
+
+
+    @foreach (var std in ViewData["adresai"] as IList<Adresai>)
+    {
+
+        @std.urlAdresas
+
+     }
+

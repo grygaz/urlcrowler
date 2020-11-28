@@ -7,7 +7,7 @@ namespace UrlFiltravimas
     {
         static void Main(string[] args)
         {
-            Console.Write("\nIvesk URL adresa pvz.: http://www.lrytas.lt ir spausk enter: ");
+            Console.Write("\nIvesk URL adresa pvz.: http(s)://www.lrytas.lt ir spausk enter: ");
             string adresas = Console.ReadLine();
 
             Filtravimas urlFltr = new Filtravimas();
