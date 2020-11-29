@@ -13,17 +13,24 @@ namespace URLcrowlerWEB.Controllers
 
             Filtravimas urlFltr = new Filtravimas();
 
-            var duomenys = urlFltr.UrlFiltravimas(adresas);
+            var urlDuomenys = urlFltr.UrlFiltravimas(adresas);
+            var emailDuomenys = urlFltr.EmailFiltravimas(adresas);
 
-            IList<Adresai> urlAdresuSarasas = new List<Adresai>();
+            IList<UrlAdresai> urlAdresuSarasas = new List<UrlAdresai>();
+            IList<EmailAdresai> emailAdresuSarasas = new List<EmailAdresai>();
 
-            foreach (var item in duomenys)
+            foreach (var item in urlDuomenys)
             {
-                urlAdresuSarasas.Add(new Adresai() { urlAdresas = item.ToString() });
+                urlAdresuSarasas.Add(new UrlAdresai() { urlAdresas = item.ToString() });
             }
 
-            ViewData["adresai"] = urlAdresuSarasas;
+            foreach (var item in emailDuomenys)
+            {
+                emailAdresuSarasas.Add(new EmailAdresai() { emailAdresas = item.ToString() });
+            }
 
+            ViewData["URLadresai"] = urlAdresuSarasas;
+            ViewData["EMAILadresai"] = emailAdresuSarasas;
             return View();
         }
     }

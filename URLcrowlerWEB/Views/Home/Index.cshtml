@@ -7,10 +7,17 @@
 <h2>URL adresai esantys portale lrytas.lt</h2>
 
 
-    @foreach (var std in ViewData["adresai"] as IList<Adresai>)
-    {
+@foreach (var std in ViewData["URLadresai"] as IList<UrlAdresai>)
+{
 
-        @std.urlAdresas
+    @std.urlAdresas
 
-     }
+}
+
+@foreach (var std in ViewData["EMAILadresai"] as IList<EmailAdresai>)
+{
+
+    @std.emailAdresas
+
+}
 

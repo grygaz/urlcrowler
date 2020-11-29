@@ -1,6 +1,6 @@
 ﻿namespace URLcrowlerWEB.Models
 {
-    public class Adresai
+    public class UrlAdresai
     {
         public string urlAdresas { get; set; }
     }
