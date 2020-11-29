@@ -16,8 +16,8 @@ namespace URLcrowlerWEB.Controllers
             var urlDuomenys = urlFltr.UrlFiltravimas(adresas);
             var emailDuomenys = urlFltr.EmailFiltravimas(adresas);
 
-            IList<UrlAdresai> urlAdresuSarasas = new List<UrlAdresai>();
-            IList<EmailAdresai> emailAdresuSarasas = new List<EmailAdresai>();
+            List<UrlAdresai> urlAdresuSarasas = new List<UrlAdresai>();
+            List<EmailAdresai> emailAdresuSarasas = new List<EmailAdresai>();
 
             foreach (var item in urlDuomenys)
             {
